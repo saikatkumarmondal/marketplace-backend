@@ -60,3 +60,22 @@ exports.getOpenProjects = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+exports.getMyAssignedProject = async (req, res) => {
+  try {
+    const project = await Project.findOne({
+      assignedSolverId: req.user.userId,
+      status: "ASSIGNED",
+    }).populate("buyerId", "name email");
+
+    if (!project) {
+      return res
+        .status(404)
+        .json({ message: "No active project assigned to you." });
+    }
+
+    res.json(project);
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+};

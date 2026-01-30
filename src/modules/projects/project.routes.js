@@ -16,5 +16,11 @@ router.get("/admin", auth, role("ADMIN"), projectController.getAllProjects);
 
 // Solver sees open projects
 router.get("/open", auth, role("SOLVER"), projectController.getOpenProjects);
+router.get(
+  "/my-assigned",
+  auth,
+  role("SOLVER"),
+  projectController.getMyAssignedProject,
+);
 
 module.exports = router;
