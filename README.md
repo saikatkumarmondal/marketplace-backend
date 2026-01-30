@@ -18,6 +18,7 @@ All APIs follow **REST principles** with proper role-based access control (RBAC)
 
 ---
 
+
 ## **Folder Structure**
 
 marketplace-backend/
@@ -57,6 +58,8 @@ marketplace-backend/
 ├── .env # Environment variables
 ├── package.json
 └── README.md
+
+
 
 ---
 
