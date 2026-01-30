@@ -6,6 +6,9 @@ const routes = require("./routes");
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Marketplace API is running...");
+});
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
